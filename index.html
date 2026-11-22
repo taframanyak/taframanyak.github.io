@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>tafra.psd | Portfolio</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#0a0a0a;color:#f5f5f5;font-family:Arial,Helvetica,sans-serif}header{padding:88px 24px 72px;text-align:center}h1{font-size:clamp(64px,14vw,190px);letter-spacing:-.095em;line-height:.8;margin:0;font-weight:900;padding-right:.1em}header p{color:#777;letter-spacing:.45em;font-size:10px;margin-top:27px;text-transform:uppercase}.gallery{max-width:1440px;margin:auto;padding:0 22px 100px;columns:3;column-gap:14px}.item{display:block;break-inside:avoid;margin-bottom:14px;position:relative;background:#171717;overflow:hidden;cursor:zoom-in;border:0;padding:0;width:100%;color:inherit;text-align:left}.item img{display:block;width:100%;height:auto;transition:transform .45s,filter .45s}.item:hover img{transform:scale(1.035);filter:brightness(.75)}.item .name{position:absolute;bottom:0;left:0;right:0;padding:35px 18px 16px;background:linear-gradient(transparent,#0009);font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:opacity .2s}.item:hover .name{opacity:1}.placeholder{aspect-ratio:var(--ratio);display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--fg,#fff);font-size:clamp(35px,5vw,95px);font-weight:900;letter-spacing:-.08em;text-align:center;padding:20px;line-height:.9}.item:hover .placeholder{filter:brightness(.8)}.modal{position:fixed;inset:0;background:#000e;display:none;align-items:center;justify-content:center;z-index:10;padding:45px}.modal.open{display:flex}.modal img{max-width:100%;max-height:90vh;object-fit:contain}.close{position:absolute;right:25px;top:20px;background:none;border:0;color:white;font-size:38px;cursor:pointer}footer{text-align:center;color:#555;font-size:11px;letter-spacing:.2em;padding:0 0 45px}@media(max-width:850px){.gallery{columns:2}header{padding:70px 20px 60px}}@media(max-width:520px){.gallery{columns:2;column-gap:9px;padding:0 10px 65px}.item{margin-bottom:9px}.placeholder{font-size:clamp(25px,7vw,45px)}header{padding:60px 12px 48px}.item .name{opacity:1;font-size:9px}}
+img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none}.item,.modal{-webkit-touch-callout:none}.item img,.modal img{pointer-events:none}.item::after{content:"";position:absolute;inset:0;pointer-events:none;background:transparent}.modal::after{content:"TAFRA  •  PREVIEW";position:absolute;bottom:14px;left:50%;transform:translateX(-50%);color:#ffffff55;font-size:10px;letter-spacing:.2em;pointer-events:none}
+
+/* TAFRA cinematic crimson title lighting */
+header{position:relative;isolation:isolate;overflow:hidden}
+header::before{content:"";position:absolute;z-index:-1;left:50%;top:47%;width:min(760px,95vw);height:270px;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(230,17,35,.27) 0%,rgba(140,0,17,.14) 30%,rgba(60,0,12,.05) 55%,transparent 75%);filter:blur(25px);pointer-events:none;animation:ambientPulse 6s ease-in-out infinite alternate}
+header::after{content:"";position:absolute;z-index:-1;left:50%;top:45%;width:min(650px,90vw);height:4px;transform:translateX(-50%);background:#e51a2b;filter:blur(35px);opacity:.65;pointer-events:none}
+header h1{color:#e31527;text-shadow:0 0 2px #ff5864,0 0 20px rgba(255,20,48,.55),0 0 65px rgba(235,0,25,.3),0 12px 42px rgba(0,0,0,.8);position:relative;animation:titleGlow 5s ease-in-out infinite alternate}
+@keyframes ambientPulse{from{opacity:.72;transform:translate(-50%,-50%) scale(.93)}to{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
+@keyframes titleGlow{from{text-shadow:0 0 2px #ff5864,0 0 15px rgba(255,20,48,.4),0 0 50px rgba(235,0,25,.24)}to{text-shadow:0 0 3px #ff8790,0 0 27px rgba(255,20,48,.7),0 0 90px rgba(235,0,25,.4)}}
+@media(prefers-reduced-motion:reduce){header::before,header h1{animation:none}}
+
+/* Daha loş sinematik ışık: başlık ve galeri */
+header::before{background:radial-gradient(ellipse at center,rgba(190,15,32,.12) 0%,rgba(115,0,18,.055) 35%,transparent 73%);filter:blur(38px);animation-duration:8s}
+header::after{opacity:.22;filter:blur(48px)}
+header h1{text-shadow:0 0 2px rgba(255,65,75,.35),0 0 16px rgba(200,12,35,.2),0 0 44px rgba(165,0,24,.12);animation:titleGlowSoft 7s ease-in-out infinite alternate}
+@keyframes titleGlowSoft{from{text-shadow:0 0 2px rgba(255,65,75,.3),0 0 12px rgba(200,12,35,.16),0 0 36px rgba(165,0,24,.08)}to{text-shadow:0 0 3px rgba(255,75,85,.4),0 0 20px rgba(200,12,35,.24),0 0 55px rgba(165,0,24,.14)}}
+.item{isolation:isolate;box-shadow:0 0 16px rgba(145,10,27,.08),0 8px 22px rgba(0,0,0,.25);transition:box-shadow .4s ease}
+.item::after{background:linear-gradient(130deg,rgba(255,105,110,.055),transparent 38%,transparent 70%,rgba(175,14,34,.055));box-shadow:inset 0 0 20px rgba(210,20,40,.065);transition:background .4s,box-shadow .4s}
+.item:hover{box-shadow:0 0 22px rgba(180,18,40,.18),0 12px 32px rgba(0,0,0,.38)}
+.item:hover::after{box-shadow:inset 0 0 26px rgba(220,25,48,.11)}
+@media(prefers-reduced-motion:reduce){header h1{animation:none}}
+/* Siyah zemin, çok hafif artırılmış sinematik parlama */
+body{background:#000}
+header::before{background:radial-gradient(ellipse at center,rgba(190,15,32,.1236) 0%,rgba(115,0,18,.05665) 35%,transparent 73%)}
+header::after{opacity:.2266}
+header h1{filter:brightness(1.03)}
+.item{box-shadow:0 0 16px rgba(145,10,27,.0824),0 8px 22px rgba(0,0,0,.25)}
+.item::after{background:linear-gradient(130deg,rgba(255,105,110,.05665),transparent 38%,transparent 70%,rgba(175,14,34,.05665));box-shadow:inset 0 0 20px rgba(210,20,40,.06695)}
+.item:hover{box-shadow:0 0 22px rgba(180,18,40,.1854),0 12px 32px rgba(0,0,0,.38)}
+.item:hover::after{box-shadow:inset 0 0 26px rgba(220,25,48,.1133)}
+.instagram-link{position:absolute;left:24px;top:22px;z-index:3;color:#bbb;text-decoration:none;font-size:12px;letter-spacing:.06em;display:inline-flex;align-items:center;gap:8px;transition:color .2s}
+.instagram-link:hover{color:#fff}
+.instagram-link svg{width:19px;height:19px}
+@media(max-width:520px){.instagram-link{left:14px;top:15px;font-size:11px}}
+
+/* Gallery hover: clean red stroke instead of red glow */
+.item{box-shadow:none;transition:box-shadow .35s ease}.item:hover,.item:focus-visible{box-shadow:0 0 2px rgba(255,65,75,.35),0 0 16px rgba(200,12,35,.20),0 0 44px rgba(165,0,24,.12)}
+.item::after,.item:hover::after{background:none;box-shadow:inset 0 0 0 2px transparent;transition:box-shadow .25s ease}
+.item:hover::after,.item:focus-visible::after{box-shadow:inset 0 0 0 2px #e31527}
+</style>
+</head>
+<body>
+<header><a class="instagram-link" href="https://www.instagram.com/tafra.psd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram tafra.psd hesabına git"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>tafra.psd</span></a><h1>tafra</h1><p>desıgns archıve</p></header>
+<main class="gallery" id="gallery"></main>
+<footer>© <span id="year"></span> tafra</footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Tasarım önizlemesi"><button class="close" id="close" aria-label="Kapat">×</button><img id="preview" alt=""></div>
+<script>
+// Tasarımlarını images klasörüne koyup buradaki dosya adlarını değiştir.
+// Henüz dosya eklenmediyse örnek kartlar görünür.
+const works=[
+ {name:'VIZVIZ • JAYWOKK',file:'images/1.jpg',ratio:'1 / 1',bg:'#cf281c',fg:'#111'},
+ {name:'FOR JAYWOKK',file:'images/2.jpg',ratio:'1 / 1',bg:'#353e31',fg:'#d3e4a2'},
+ {name:'LONDON • EGEDIDTHIS',file:'images/3.jpg',ratio:'1 / 1',bg:'#d4d1c7',fg:'#1a1a1a'},
+ {name:'ZOMBI • MEDU',file:'images/4.jpg',ratio:'1 / 1',bg:'#222',fg:'#ddd'},
+ {name:'pilav • TAFRA',file:'images/5.jpg',ratio:'1 / 1',bg:'#433c60',fg:'#f1edff'},
+ {name:'THRILLER • TAFRA',file:'images/6.jpg',ratio:'1 / 1',bg:'#b1b4b0',fg:'#202020'},
+ {name:'TAFRA SHOW • TAFRA',file:'images/7.jpg',ratio:'1 / 1',bg:'#172c32',fg:'#b8f3ed'},
+ {name:'ESTAGFURULLAH • JAYWOKK',file:'images/8.jpg',ratio:'1 / 1',bg:'#d9a82e',fg:'#191919'},
+ {name:'UNDERSTAR • TAFRA',file:'images/9.jpg',ratio:'1 / 1',bg:'#471e22',fg:'#f3c7c7'}
+];
+const gallery=document.getElementById('gallery');
+for(const work of works){const card=document.createElement('button');card.className='item';card.setAttribute('aria-label',work.name);const img=document.createElement('img');img.src=work.file;img.alt=work.name;img.loading='lazy';img.draggable=false;img.onerror=()=>{img.remove();const fallback=document.createElement('div');fallback.className='placeholder';fallback.style.setProperty('--ratio',work.ratio);fallback.style.setProperty('--bg',work.bg);fallback.style.setProperty('--fg',work.fg);fallback.textContent=work.name;card.prepend(fallback);card.style.cursor='default'};card.append(img);const label=document.createElement('span');label.className='name';label.textContent=work.name;card.append(label);card.addEventListener('click',()=>{if(!img.isConnected)return;document.getElementById('preview').src=work.file;document.getElementById('preview').draggable=false;document.getElementById('preview').alt=work.name;document.getElementById('modal').classList.add('open')});gallery.append(card)}
+const modal=document.getElementById('modal');function closeModal(){modal.classList.remove('open')}document.getElementById('close').onclick=closeModal;modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});document.getElementById('year').textContent=new Date().getFullYear();
+// Basit kopyalama/kaydetme yollarını engeller; ekran görüntüsü ve ağ istekleri engellenemez.
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('dragstart',e=>{if(e.target.closest('img,.item'))e.preventDefault()});
+document.addEventListener('copy',e=>{if(window.getSelection()?.toString())return;e.preventDefault()});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&['s','p'].includes(e.key.toLowerCase()))e.preventDefault()});
+</script>
+</body></html>
