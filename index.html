@@ -49,6 +49,14 @@ header h1{filter:brightness(1.03)}
 .modal img{max-height:calc(90vh - 65px)}
 .preview-link{display:inline-flex;align-items:center;gap:8px;color:#f4f4f4;border:1px solid #e31527;padding:11px 20px;text-decoration:none;font-size:12px;letter-spacing:.09em;transition:background .2s,box-shadow .2s;position:relative;z-index:12}
 .preview-link:hover{background:#3b0710;box-shadow:0 0 16px rgba(200,12,35,.2)}
+
+/* Düzenli galeri: mobilde ve masaüstünde satırlar aynı hizada, sıralama korunur. */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:14px;row-gap:14px;columns:auto;align-items:start}
+.gallery .item{margin:0;aspect-ratio:1 / 1;min-width:0;overflow:hidden}
+.gallery .item img{width:100%;height:100%;object-fit:cover}
+.gallery .item .placeholder{width:100%;height:100%;aspect-ratio:auto}
+@media(max-width:850px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.gallery{column-gap:9px;row-gap:9px}}
 </style>
 </head>
 <body>
