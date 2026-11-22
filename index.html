@@ -44,29 +44,34 @@ header h1{filter:brightness(1.03)}
 .item{box-shadow:none;transition:box-shadow .35s ease}.item:hover,.item:focus-visible{box-shadow:0 0 2px rgba(255,65,75,.35),0 0 16px rgba(200,12,35,.20),0 0 44px rgba(165,0,24,.12)}
 .item::after,.item:hover::after{background:none;box-shadow:inset 0 0 0 2px transparent;transition:box-shadow .25s ease}
 .item:hover::after,.item:focus-visible::after{box-shadow:inset 0 0 0 2px #e31527}
+/* Preview work link */
+.modal{flex-direction:column;gap:18px}
+.modal img{max-height:calc(90vh - 65px)}
+.preview-link{display:inline-flex;align-items:center;gap:8px;color:#f4f4f4;border:1px solid #e31527;padding:11px 20px;text-decoration:none;font-size:12px;letter-spacing:.09em;transition:background .2s,box-shadow .2s;position:relative;z-index:12}
+.preview-link:hover{background:#3b0710;box-shadow:0 0 16px rgba(200,12,35,.2)}
 </style>
 </head>
 <body>
 <header><a class="instagram-link" href="https://www.instagram.com/tafra.psd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram tafra.psd hesabına git"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>tafra.psd</span></a><h1>tafra</h1><p>desıgns archıve</p></header>
 <main class="gallery" id="gallery"></main>
 <footer>© <span id="year"></span> tafra</footer>
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Tasarım önizlemesi"><button class="close" id="close" aria-label="Kapat">×</button><img id="preview" alt=""></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Tasarım önizlemesi"><button class="close" id="close" aria-label="Kapat">×</button><img id="preview" alt=""><a id="preview-link" class="preview-link" href="https://www.instagram.com/tafra.psd/" target="_blank" rel="noopener noreferrer">kimin için?</a></div>
 <script>
 // Tasarımlarını images klasörüne koyup buradaki dosya adlarını değiştir.
 // Henüz dosya eklenmediyse örnek kartlar görünür.
 const works=[
- {name:'VIZVIZ • JAYWOKK',file:'images/1.jpg',ratio:'1 / 1',bg:'#cf281c',fg:'#111'},
- {name:'FOR JAYWOKK',file:'images/2.jpg',ratio:'1 / 1',bg:'#353e31',fg:'#d3e4a2'},
- {name:'LONDON • EGEDIDTHIS',file:'images/3.jpg',ratio:'1 / 1',bg:'#d4d1c7',fg:'#1a1a1a'},
- {name:'ZOMBI • MEDU',file:'images/4.jpg',ratio:'1 / 1',bg:'#222',fg:'#ddd'},
- {name:'pilav • TAFRA',file:'images/5.jpg',ratio:'1 / 1',bg:'#433c60',fg:'#f1edff'},
- {name:'THRILLER • TAFRA',file:'images/6.jpg',ratio:'1 / 1',bg:'#b1b4b0',fg:'#202020'},
- {name:'TAFRA SHOW • TAFRA',file:'images/7.jpg',ratio:'1 / 1',bg:'#172c32',fg:'#b8f3ed'},
- {name:'ESTAGFURULLAH • JAYWOKK',file:'images/8.jpg',ratio:'1 / 1',bg:'#d9a82e',fg:'#191919'},
- {name:'UNDERSTAR • TAFRA',file:'images/9.jpg',ratio:'1 / 1',bg:'#471e22',fg:'#f3c7c7'}
+ {name:'VIZVIZ • JAYWOKK',file:'images/1.jpg',ratio:'1 / 1',bg:'#cf281c',fg:'#111',link:'https://www.instagram.com/jaywokka/'},
+ {name:'FOR JAYWOKK',file:'images/2.jpg',ratio:'1 / 1',bg:'#353e31',fg:'#d3e4a2',link:'https://www.instagram.com/jaywokka/'},
+ {name:'LONDON • EGEDIDTHIS',file:'images/3.jpg',ratio:'1 / 1',bg:'#d4d1c7',fg:'#1a1a1a',link:'https://www.instagram.com/egedidthis/'},
+ {name:'ZOMBI • MEDU',file:'images/4.jpg',ratio:'1 / 1',bg:'#222',fg:'#ddd',link:'https://www.instagram.com/thekidmedu/'},
+ {name:'pilav • TAFRA',file:'images/5.jpg',ratio:'1 / 1',bg:'#433c60',fg:'#f1edff',link:'https://www.instagram.com/tafra55/'},
+ {name:'THRILLER • TAFRA',file:'images/6.jpg',ratio:'1 / 1',bg:'#b1b4b0',fg:'#202020',link:'https://www.instagram.com/tafra55/'},
+ {name:'TAFRA SHOW • TAFRA',file:'images/7.jpg',ratio:'1 / 1',bg:'#172c32',fg:'#b8f3ed',link:'https://www.instagram.com/tafra55/'},
+ {name:'ESTAGFURULLAH • JAYWOKK',file:'images/8.jpg',ratio:'1 / 1',bg:'#d9a82e',fg:'#191919',link:'https://www.instagram.com/jaywokka/'},
+ {name:'UNDERSTAR • TAFRA',file:'images/9.jpg',ratio:'1 / 1',bg:'#471e22',fg:'#f3c7c7',link:'https://www.instagram.com/tafra55/'}
 ];
 const gallery=document.getElementById('gallery');
-for(const work of works){const card=document.createElement('button');card.className='item';card.setAttribute('aria-label',work.name);const img=document.createElement('img');img.src=work.file;img.alt=work.name;img.loading='lazy';img.draggable=false;img.onerror=()=>{img.remove();const fallback=document.createElement('div');fallback.className='placeholder';fallback.style.setProperty('--ratio',work.ratio);fallback.style.setProperty('--bg',work.bg);fallback.style.setProperty('--fg',work.fg);fallback.textContent=work.name;card.prepend(fallback);card.style.cursor='default'};card.append(img);const label=document.createElement('span');label.className='name';label.textContent=work.name;card.append(label);card.addEventListener('click',()=>{if(!img.isConnected)return;document.getElementById('preview').src=work.file;document.getElementById('preview').draggable=false;document.getElementById('preview').alt=work.name;document.getElementById('modal').classList.add('open')});gallery.append(card)}
+for(const work of works){const card=document.createElement('button');card.className='item';card.setAttribute('aria-label',work.name);const img=document.createElement('img');img.src=work.file;img.alt=work.name;img.loading='lazy';img.draggable=false;img.onerror=()=>{img.remove();const fallback=document.createElement('div');fallback.className='placeholder';fallback.style.setProperty('--ratio',work.ratio);fallback.style.setProperty('--bg',work.bg);fallback.style.setProperty('--fg',work.fg);fallback.textContent=work.name;card.prepend(fallback);card.style.cursor='default'};card.append(img);const label=document.createElement('span');label.className='name';label.textContent=work.name;card.append(label);card.addEventListener('click',()=>{if(!img.isConnected)return;document.getElementById('preview').src=work.file;document.getElementById('preview').draggable=false;document.getElementById('preview').alt=work.name;document.getElementById('preview-link').href=work.link;document.getElementById('modal').classList.add('open')});gallery.append(card)}
 const modal=document.getElementById('modal');function closeModal(){modal.classList.remove('open')}document.getElementById('close').onclick=closeModal;modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});document.getElementById('year').textContent=new Date().getFullYear();
 // Basit kopyalama/kaydetme yollarını engeller; ekran görüntüsü ve ağ istekleri engellenemez.
 document.addEventListener('contextmenu',e=>e.preventDefault());
