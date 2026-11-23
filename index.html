@@ -88,15 +88,15 @@ header h1{filter:brightness(1.03)}
 // Henüz dosya eklenmediyse örnek kartlar görünür.
 const works=[
  {name:'VIZVIZ • JAYWOKK',file:'images/1.jpg',ratio:'1 / 1',bg:'#cf281c',fg:'#111',link:'https://www.instagram.com/jaywokkhardt/'},
- {name:'BIG BOUNCE • JAYWOKK',file:'images/10.jpg',ratio:'1 / 1',bg:'#353e31',fg:'#d3e4a2',link:'https://www.instagram.com/jaywokkhardt/'},
- {name:'JAYWOKK',file:'images/2.jpg',ratio:'1 / 1',bg:'#353e31',fg:'#d3e4a2',link:'https://www.instagram.com/jaywokkhardt/'},
+ {name:'FOR JAYWOKK',file:'images/2.jpg',ratio:'1 / 1',bg:'#353e31',fg:'#d3e4a2',link:'https://www.instagram.com/jaywokkhardt/'},
  {name:'LONDON • EGEDIDTHIS',file:'images/3.jpg',ratio:'1 / 1',bg:'#d4d1c7',fg:'#1a1a1a',link:'https://www.instagram.com/egedidthis/'},
  {name:'ZOMBI • MEDU',file:'images/4.jpg',ratio:'1 / 1',bg:'#222',fg:'#ddd',link:'https://www.instagram.com/thekidmedu/'},
  {name:'pilav • TAFRA',file:'images/5.jpg',ratio:'1 / 1',bg:'#433c60',fg:'#f1edff',link:'https://www.instagram.com/tafra55/'},
  {name:'THRILLER • TAFRA',file:'images/6.jpg',ratio:'1 / 1',bg:'#b1b4b0',fg:'#202020',link:'https://www.instagram.com/tafra55/'},
  {name:'TAFRA SHOW • TAFRA',file:'images/7.jpg',ratio:'1 / 1',bg:'#172c32',fg:'#b8f3ed',link:'https://www.instagram.com/tafra55/'},
  {name:'ESTAGFURULLAH • JAYWOKK',file:'images/8.jpg',ratio:'1 / 1',bg:'#d9a82e',fg:'#191919',link:'https://www.instagram.com/jaywokkhardt/'},
- {name:'UNDERSTAR • TAFRA',file:'images/9.jpg',ratio:'1 / 1',bg:'#471e22',fg:'#f3c7c7',link:'https://www.instagram.com/tafra55/'}
+ {name:'UNDERSTAR • TAFRA',file:'images/9.jpg',ratio:'1 / 1',bg:'#471e22',fg:'#f3c7c7',link:'https://www.instagram.com/tafra55/'},
+ {name:'BIG BOUNCE • JAYWOKK',file:'images/10.jpg',ratio:'1 / 1',bg:'#353e31',fg:'#d3e4a2',link:'https://www.instagram.com/jaywokkhardt/'},
 ];
 const gallery=document.getElementById('gallery');
 for(const work of works){const card=document.createElement('button');card.className='item';card.setAttribute('aria-label',work.name);const img=document.createElement('img');img.src=work.file;img.alt=work.name;img.loading='lazy';img.draggable=false;img.onerror=()=>{img.remove();const fallback=document.createElement('div');fallback.className='placeholder';fallback.style.setProperty('--ratio',work.ratio);fallback.style.setProperty('--bg',work.bg);fallback.style.setProperty('--fg',work.fg);fallback.textContent=work.name;card.prepend(fallback);card.style.cursor='default'};card.append(img);const label=document.createElement('span');label.className='name';label.textContent=work.name;card.append(label);card.addEventListener('click',()=>{if(!img.isConnected)return;document.getElementById('preview').src=work.file;document.getElementById('preview').draggable=false;document.getElementById('preview').alt=work.name;document.getElementById('preview-link').href=work.link;document.getElementById('modal').classList.add('open')});gallery.append(card)}
