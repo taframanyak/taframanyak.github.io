@@ -76,6 +76,17 @@ header h1{filter:brightness(1.03)}
 .instagram-link img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;transition:transform .25s ease,filter .25s ease}
 .instagram-link:hover img,.instagram-link:focus-visible img{transform:scale(1.08);filter:drop-shadow(0 0 7px rgba(227,21,39,.35))}
 @media(max-width:520px){.instagram-link{left:12px;right:auto;top:12px;width:42px;height:42px}}
+ 
+.gallery .item {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.gallery .item img,
+.gallery .item::after {
+  border-radius: inherit;
+}
+
 </style>
 </head>
 <body>
